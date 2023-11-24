@@ -3,17 +3,28 @@ using UnityEngine;
 
 public class PlayerController : MonoBehaviour
 {
+    // Player state
     public int healthPoints;
-
-    [SerializeField] private float currentSpeed;
-    private bool canDash;
     private bool isDead;
+    private bool canDash;
 
+    // Movement
+    [SerializeField] private float currentSpeed;
     [SerializeField] private float walkingSpeed;
     [SerializeField] private float dashSpeed;
     [SerializeField] private float dashCooldown;
     [SerializeField] private float dashDuration;
 
+    // Melee Attacks
+    [SerializeField] public int meleeDamage;
+    [SerializeField] public float meleeCooldown;
+    private float meleeTimer;
+
+    // Range Attacks
+    [SerializeField] private GameObject rangeAttackObject;
+    [SerializeField] public int rangeDamage;
+    [SerializeField] public float rangeCooldown;
+    private float rangeTimer;
 
     // Start is called before the first frame update
     void Start()
@@ -21,6 +32,9 @@ public class PlayerController : MonoBehaviour
         isDead = false;
         canDash = true;
         currentSpeed = walkingSpeed;
+
+        meleeTimer = meleeCooldown;
+        rangeTimer = 69;
     }
 
     // Update is called once per frame
@@ -28,6 +42,7 @@ public class PlayerController : MonoBehaviour
     {
         CheckIfDead();
         Movement();
+        Attack();
     }
 
     void Movement()
@@ -45,6 +60,26 @@ public class PlayerController : MonoBehaviour
             if (Input.GetKeyDown(KeyCode.Space))
             {
                 StartCoroutine(Dash());
+            }
+        }
+    }
+
+    void Attack()
+    {
+        rangeTimer += Time.deltaTime;
+        meleeTimer += Time.deltaTime;
+
+        if (!isDead)
+        {
+            // Range attack
+            if (Input.GetKeyDown(KeyCode.Mouse0) && rangeTimer >= rangeCooldown)
+            {
+                rangeTimer = 0;
+
+                Vector3 mousePosition = Camera.main.ScreenToWorldPoint(Input.mousePosition);
+                Vector3 vectorToTarget = mousePosition - transform.position;
+                Vector3 rotatedVectorToTarget = Quaternion.Euler(0, 0, 180) * vectorToTarget;
+                GameObject.Instantiate(rangeAttackObject, transform.position, Quaternion.LookRotation(Vector3.forward, rotatedVectorToTarget * -90));
             }
         }
     }
