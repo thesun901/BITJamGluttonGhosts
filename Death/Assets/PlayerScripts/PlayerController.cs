@@ -42,7 +42,10 @@ public class PlayerController : MonoBehaviour
             transform.Translate(velocity);
 
             // Dash
-            StartCoroutine(Dash());
+            if (Input.GetKeyDown(KeyCode.Space))
+            {
+                StartCoroutine(Dash());
+            }
         }
     }
 
