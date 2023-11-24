@@ -29,7 +29,7 @@ public class UniversalEnemy : MonoBehaviour, IDamagable
     {
         healthPoints -= amount;
 
-        if(healthPoints<0)
+        if (healthPoints < 0)
         {
             death();
         }
@@ -44,7 +44,8 @@ public class UniversalEnemy : MonoBehaviour, IDamagable
     {
         Vector3 vectorToTarget = player.transform.position - transform.position;
         Vector3 rotatedVectorToTarget = Quaternion.Euler(0, 0, 180) * vectorToTarget;
-        GameObject.Instantiate(primaryAttack, transform.position, Quaternion.LookRotation(Vector3.forward, rotatedVectorToTarget * -90));
+        Vector3 addedPosition = vectorToTarget.normalized;
+        GameObject.Instantiate(primaryAttack, transform.position + addedPosition, Quaternion.LookRotation(Vector3.forward, rotatedVectorToTarget * -90));
         primaryAttackTimer = 0;
     }
 
@@ -80,7 +81,7 @@ public class UniversalEnemy : MonoBehaviour, IDamagable
             transform.position = Vector2.MoveTowards(transform.position, player.transform.position, speed * Time.deltaTime);
         }
 
-        else if(distanceToHero < uncomfortableDistance)
+        else if (distanceToHero < uncomfortableDistance)
         {
             transform.position = Vector2.MoveTowards(transform.position, player.transform.position, -speed * Time.deltaTime);
         }
