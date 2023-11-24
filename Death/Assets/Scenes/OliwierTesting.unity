@@ -133,11 +133,11 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 2153419393089286389, guid: ea073ecefb0185d49be444ca2e7394ab, type: 3}
       propertyPath: attackRange
-      value: 8.23
+      value: 61.4
       objectReference: {fileID: 0}
     - target: {fileID: 2153419393089286389, guid: ea073ecefb0185d49be444ca2e7394ab, type: 3}
       propertyPath: minimumDistance
-      value: 9.75
+      value: 6.11
       objectReference: {fileID: 0}
     - target: {fileID: 2153419393089286389, guid: ea073ecefb0185d49be444ca2e7394ab, type: 3}
       propertyPath: uncomfortableDistance
@@ -253,7 +253,7 @@ Camera:
   far clip plane: 1000
   field of view: 60
   orthographic: 1
-  orthographic size: 5
+  orthographic size: 15.029478
   m_Depth: -1
   m_CullingMask:
     serializedVersion: 2
