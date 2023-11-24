@@ -1,15 +1,26 @@
+using System.Collections;
 using UnityEngine;
 
 public class PlayerController : MonoBehaviour
 {
     public int healthPoints;
-    [SerializeField] private float speed;
+
+    [SerializeField] private float currentSpeed;
+    private bool canDash;
     private bool isDead;
+
+    [SerializeField] private float walkingSpeed;
+    [SerializeField] private float dashSpeed;
+    [SerializeField] private float dashCooldown;
+    [SerializeField] private float dashDuration;
+
 
     // Start is called before the first frame update
     void Start()
     {
         isDead = false;
+        canDash = true;
+        currentSpeed = walkingSpeed;
     }
 
     // Update is called once per frame
@@ -23,11 +34,32 @@ public class PlayerController : MonoBehaviour
     {
         float moveInputHorizontal = Input.GetAxis("Horizontal");
         float moveInputVertical = Input.GetAxis("Vertical");
-        Vector2 velocity = new Vector2(moveInputHorizontal * speed * Time.deltaTime, moveInputVertical * speed * Time.deltaTime);
+        Vector2 velocity = new Vector2(moveInputHorizontal * currentSpeed * Time.deltaTime, moveInputVertical * currentSpeed * Time.deltaTime);
 
         if (!isDead)
         {
+            // Movement
             transform.Translate(velocity);
+
+            // Dash
+            StartCoroutine(Dash());
+        }
+    }
+
+    IEnumerator Dash()
+    {
+        if (canDash)
+        {
+            currentSpeed = dashSpeed;
+            canDash = false;
+
+            yield return new WaitForSeconds(dashDuration);
+
+            currentSpeed = walkingSpeed;
+
+            yield return new WaitForSeconds(dashCooldown);
+
+            canDash = true;
         }
     }
 

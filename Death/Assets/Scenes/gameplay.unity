@@ -315,7 +315,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   healthPoints: 100
-  speed: 10
+  walkingSpeed: 10
+  dashSpeed: 30
+  dashCooldown: 10
+  dashDuration: 5
 --- !u!70 &681644035
 CapsuleCollider2D:
   m_ObjectHideFlags: 0
@@ -359,7 +362,7 @@ Rigidbody2D:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 681644031}
-  m_BodyType: 0
+  m_BodyType: 1
   m_Simulated: 1
   m_UseFullKinematicContacts: 0
   m_UseAutoMass: 0
