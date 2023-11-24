@@ -13,6 +13,12 @@ public class UniversalEnemy : MonoBehaviour, IDamagable
     private GameObject player;
     [SerializeField]
     private float attackRange;
+    [SerializeField]
+    private float minimumDistance;
+    [SerializeField]
+    private float uncomfortableDistance;
+
+
     private float distanceToHero;
     [SerializeField] private GameObject primaryAttack, secondaryAttack;
     [SerializeField] private float primaryAttackCooldown, secondaryAttackCooldown;
@@ -67,7 +73,17 @@ public class UniversalEnemy : MonoBehaviour, IDamagable
 
     void move()
     {
-        transform.position = Vector2.MoveTowards(transform.position, player.transform.position, speed * Time.deltaTime);
+        distanceToHero = Vector2.Distance(transform.position, player.transform.position);
+
+        if (distanceToHero > minimumDistance)
+        {
+            transform.position = Vector2.MoveTowards(transform.position, player.transform.position, speed * Time.deltaTime);
+        }
+
+        else if(distanceToHero < uncomfortableDistance)
+        {
+            transform.position = Vector2.MoveTowards(transform.position, player.transform.position, -speed * Time.deltaTime);
+        }
 
     }
 

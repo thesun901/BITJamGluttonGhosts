@@ -98,8 +98,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   healthPoints: 10
-  attackRange: 3
-  primaryAttack: {fileID: 0}
+  attackRange: 4.76
+  minimumDistance: 0.91
+  uncomfortableDistance: 0.24
+  distanceToHero: 0
+  primaryAttack: {fileID: 2561097710071662032, guid: 08107a0d6d132cd47b144b67b34873d5, type: 3}
   secondaryAttack: {fileID: 0}
-  primaryAttackCooldown: 30
+  primaryAttackCooldown: 3
   secondaryAttackCooldown: 35
+  speed: 3
