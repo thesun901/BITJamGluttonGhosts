@@ -2,6 +2,8 @@ using System.Collections;
 using System.Collections.Generic;
 using Unity.VisualScripting;
 using UnityEngine;
+using static UnityEditor.FilePathAttribute;
+using static UnityEngine.GraphicsBuffer;
 
 public class UniversalEnemy : MonoBehaviour, IDamagable
 {
@@ -12,11 +14,10 @@ public class UniversalEnemy : MonoBehaviour, IDamagable
     [SerializeField]
     private float attackRange;
     private float distanceToHero;
-    [SerializeField]
-    private GameObject primaryAttack, secondaryAttack;
-    [SerializeField]
-    private float primaryAttackCooldown, secondaryAttackCooldown;
+    [SerializeField] private GameObject primaryAttack, secondaryAttack;
+    [SerializeField] private float primaryAttackCooldown, secondaryAttackCooldown;
     private float primaryAttackTimer, secondaryAttackTimer;
+    [SerializeField] private float speed;
 
     public void damage(int amount)
     {
@@ -35,7 +36,9 @@ public class UniversalEnemy : MonoBehaviour, IDamagable
 
     void firstAttack()
     {
-        GameObject.Instantiate(primaryAttack);
+        Vector3 vectorToTarget = player.transform.position - transform.position;
+        Vector3 rotatedVectorToTarget = Quaternion.Euler(0, 0, 180) * vectorToTarget;
+        GameObject.Instantiate(primaryAttack, transform.position, Quaternion.LookRotation(Vector3.forward, rotatedVectorToTarget * -90));
         primaryAttackTimer = 0;
     }
 
@@ -62,6 +65,12 @@ public class UniversalEnemy : MonoBehaviour, IDamagable
         }
     }
 
+    void move()
+    {
+        transform.position = Vector2.MoveTowards(transform.position, player.transform.position, speed * Time.deltaTime);
+
+    }
+
 
     // Start is called before the first frame update
     void Start()
@@ -72,6 +81,7 @@ public class UniversalEnemy : MonoBehaviour, IDamagable
     // Update is called once per frame
     void Update()
     {
+        move();
         attacksControl();
     }
 }
