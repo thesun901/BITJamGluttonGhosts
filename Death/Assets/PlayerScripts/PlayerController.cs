@@ -105,4 +105,9 @@ public class PlayerController : MonoBehaviour
     {
         isDead = healthPoints <= 0;
     }
+
+    public void OnHit(int damage)
+    {
+        healthPoints -= damage;
+    } 
 }
