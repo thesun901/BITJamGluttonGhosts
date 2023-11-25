@@ -7,11 +7,12 @@ public class PlayerController : MonoBehaviour
     public int healthPoints;
     private bool isDead;
     private bool canDash;
+    private bool isSlowed;
 
     // Movement
     [SerializeField] private float currentSpeed;
     [SerializeField] private float walkingSpeed;
-    [SerializeField] private float dashSpeed;
+    [SerializeField] private float dashSpeedBonus;
     [SerializeField] private float dashCooldown;
     [SerializeField] private float dashDuration;
 
@@ -31,6 +32,7 @@ public class PlayerController : MonoBehaviour
     {
         isDead = false;
         canDash = true;
+        isSlowed = false;
         currentSpeed = walkingSpeed;
 
         meleeTimer = meleeCooldown;
@@ -88,16 +90,35 @@ public class PlayerController : MonoBehaviour
     {
         if (canDash)
         {
-            currentSpeed = dashSpeed;
+            currentSpeed += dashSpeedBonus;
             canDash = false;
 
             yield return new WaitForSeconds(dashDuration);
 
-            currentSpeed = walkingSpeed;
+            currentSpeed -= dashSpeedBonus;
 
             yield return new WaitForSeconds(dashCooldown);
 
             canDash = true;
+        }
+    }
+
+    IEnumerator SlowDown(float slowDuration, float slowStrength)
+    {
+        currentSpeed *= 1 - slowStrength;
+        isSlowed = true;
+
+        yield return new WaitForSeconds(slowDuration);
+
+        currentSpeed = walkingSpeed;
+        isSlowed = false;
+    }
+
+    public void GetSlowed(float slowDuration, float slowStrength)
+    {
+        if (!isSlowed)
+        {
+            StartCoroutine(SlowDown(slowDuration, slowStrength));
         }
     }
 
@@ -109,5 +130,5 @@ public class PlayerController : MonoBehaviour
     public void OnHit(int damage)
     {
         healthPoints -= damage;
-    } 
+    }
 }
