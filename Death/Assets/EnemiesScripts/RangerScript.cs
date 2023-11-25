@@ -8,6 +8,7 @@ public class RangerScript : UniversalEnemy
     [SerializeField] Sprite relaxed;
     [SerializeField] Sprite ready;
     [SerializeField] Sprite shooting;
+    private Transform body;
     private SpriteRenderer sr;
     private Animator animator;
 
@@ -17,6 +18,7 @@ public class RangerScript : UniversalEnemy
     private void Start()
     {
         player = GameObject.Find("Player");
+        body = gameObject.transform.GetChild(0);
         sr = gameObject.transform.GetChild(0).GetComponent<SpriteRenderer>();
         animator = gameObject.transform.GetChild(0).GetComponent<Animator>();
         InvokeRepeating("animationDetails", 0.05f, 0.05f);
@@ -44,6 +46,15 @@ public class RangerScript : UniversalEnemy
     protected void moveAnimations()
     {
         distanceToHero = Vector2.Distance(transform.position, player.transform.position);
+
+        if (player.transform.position.x > transform.position.x)
+        {
+            body.localScale = new Vector3(-1, 1, 1);
+        }
+        else
+        {
+            body.localScale = new Vector3(1, 1, 1);
+        }
 
         if (distanceToHero > minimumDistance)
         {
