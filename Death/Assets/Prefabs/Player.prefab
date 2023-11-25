@@ -290,10 +290,11 @@ MonoBehaviour:
   rangeAttackObject: {fileID: 7285565516228939548, guid: a056165bda0e3dc4aa42e7086f9e9630, type: 3}
   rangeDamage: 5
   rangeCooldown: 0.5
+  playerAudio: {fileID: 0}
   meleeSound: {fileID: 8300000, guid: e7aacd80747810243a4349646c009703, type: 3}
   rangeSound: {fileID: 8300000, guid: f52ccd9e974638d45b17481963c52fab, type: 3}
   playerHurtSound: {fileID: 8300000, guid: 906f256a5b77f004aba56e18cf97a92d, type: 3}
-  projectileCollisionSound: {fileID: 8300000, guid: be2191c032416824ab4e131de27a871c, type: 3}
+  dashSound: {fileID: 8300000, guid: fdf1371cab27fd040bb26e6147cf2d9d, type: 3}
 --- !u!70 &5538466880579999979
 CapsuleCollider2D:
   m_ObjectHideFlags: 0
