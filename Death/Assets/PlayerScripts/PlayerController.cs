@@ -28,9 +28,14 @@ public class PlayerController : MonoBehaviour
     [SerializeField] public float rangeCooldown;
     private float rangeTimer;
 
-    //Animations
+    // Animations
     private Animator animator;
     private Transform body;
+
+    // Sounds
+    private AudioSource playerAudio;
+    [SerializeField] private AudioClip meleeSound;
+    [SerializeField] private AudioClip rangeSound;
 
     // Start is called before the first frame update
     void Start()
@@ -42,7 +47,8 @@ public class PlayerController : MonoBehaviour
         body = gameObject.transform.GetChild(0);
         animator = body.GetComponent<Animator>();
         meleeTimer = meleeCooldown;
-        rangeTimer = 69;
+        rangeTimer = rangeCooldown;
+        playerAudio = GetComponent<AudioSource>();
     }
 
     // Update is called once per frame
@@ -119,7 +125,7 @@ public class PlayerController : MonoBehaviour
                 vectorToTarget.z = 0;
                 Vector3 rotatedVectorToTarget = Quaternion.Euler(0, 0, 90) * vectorToTarget;
                 GameObject.Instantiate(meleeAttackObject, transform.position + vectorToTarget.normalized * 2, Quaternion.LookRotation(Vector3.forward, rotatedVectorToTarget));
-
+                playerAudio.PlayOneShot(meleeSound);
             }
         }
     }
