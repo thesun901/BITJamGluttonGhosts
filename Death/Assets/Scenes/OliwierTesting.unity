@@ -131,6 +131,18 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 2153419393089286389, guid: ea073ecefb0185d49be444ca2e7394ab, type: 3}
+      propertyPath: attackRange
+      value: 61.4
+      objectReference: {fileID: 0}
+    - target: {fileID: 2153419393089286389, guid: ea073ecefb0185d49be444ca2e7394ab, type: 3}
+      propertyPath: minimumDistance
+      value: 9.91
+      objectReference: {fileID: 0}
+    - target: {fileID: 2153419393089286389, guid: ea073ecefb0185d49be444ca2e7394ab, type: 3}
+      propertyPath: uncomfortableDistance
+      value: 6.98
+      objectReference: {fileID: 0}
     - target: {fileID: 2262880146278756740, guid: ea073ecefb0185d49be444ca2e7394ab, type: 3}
       propertyPath: m_Name
       value: Archer
@@ -275,8 +287,8 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 504336009c4d4184287ca464c848f3c7, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
+  m_Name:
+  m_EditorClassIdentifier:
 --- !u!1 &2029623051
 GameObject:
   m_ObjectHideFlags: 0
