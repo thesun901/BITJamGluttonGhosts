@@ -137,11 +137,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2153419393089286389, guid: ea073ecefb0185d49be444ca2e7394ab, type: 3}
       propertyPath: minimumDistance
-      value: 6.11
+      value: 9.91
       objectReference: {fileID: 0}
     - target: {fileID: 2153419393089286389, guid: ea073ecefb0185d49be444ca2e7394ab, type: 3}
       propertyPath: uncomfortableDistance
-      value: 4.42
+      value: 6.98
       objectReference: {fileID: 0}
     - target: {fileID: 2262880146278756740, guid: ea073ecefb0185d49be444ca2e7394ab, type: 3}
       propertyPath: m_Name
