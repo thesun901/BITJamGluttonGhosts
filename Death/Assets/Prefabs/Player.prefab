@@ -189,7 +189,7 @@ MonoBehaviour:
   healthPoints: 100
   currentSpeed: 10
   walkingSpeed: 10
-  dashSpeedBonus: 0
+  dashSpeedBonus: 20
   dashCooldown: 5
   dashDuration: 0.2
   meleeAttackObject: {fileID: 2511048289176611246, guid: e6cb67f21845b6441a23e1ada4319c50, type: 3}
