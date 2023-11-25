@@ -1102,6 +1102,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   healthPointsText: {fileID: 902718249}
+  healthPointsBar: {fileID: 1231128835}
   dashCooldownBar: {fileID: 367498099}
 --- !u!1 &1189866322
 GameObject:
