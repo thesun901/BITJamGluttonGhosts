@@ -8,24 +8,25 @@ public class GameManager : MonoBehaviour
 {
     private GameObject playerObject;
     [SerializeField] private TextMeshProUGUI healthPointsText;
+    [SerializeField] private Slider healthPointsBar;
     [SerializeField] private Slider dashCooldownBar;
 
     // Start is called before the first frame update
     void Start()
     {
         playerObject = GameObject.Find("Player");
-        UpdateHealthPoints();
+        UpdateHealthPoints(100);
     }
 
     // Update is called once per frame
     void Update()
     {
-        
+
     }
 
-    public void UpdateHealthPoints()
+    public void UpdateHealthPoints(int healthPoints)
     {
-        healthPointsText.text = "HP: " + playerObject.GetComponent<PlayerController>().healthPoints;
+        healthPointsBar.value = (float)healthPoints / 100;
     }
 
     public void UpdateDashCooldown(float percent)

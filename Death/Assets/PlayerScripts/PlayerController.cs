@@ -184,6 +184,6 @@ public class PlayerController : MonoBehaviour
     {
         healthPoints -= damage;
         playerAudio.PlayOneShot(playerHurtSound);
-        gameManager.UpdateHealthPoints();
+        gameManager.UpdateHealthPoints(healthPoints);
     }
 }
