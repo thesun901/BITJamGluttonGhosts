@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 2153419393089286389}
   - component: {fileID: 7278838950227729251}
   - component: {fileID: 3515824954774484502}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: UniversalEnemy
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -99,14 +99,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ce363fbc4e02b004c8c99a9302b878fa, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  healthPoints: 10
-  attackRange: 17.5
-  minimumDistance: 1.7
-  uncomfortableDistance: 1.12
+  healthPoints: 22
+  attackRange: 61.4
+  minimumDistance: 9.91
+  uncomfortableDistance: 6.98
   primaryAttack: {fileID: 2561097710071662032, guid: 08107a0d6d132cd47b144b67b34873d5, type: 3}
-  secondaryAttack: {fileID: 0}
+  secondaryAttack: {fileID: 1156973731342554112, guid: 75362b1c28fc0a344ae57769d21f005c, type: 3}
   primaryAttackCooldown: 3
-  secondaryAttackCooldown: 35
+  secondaryAttackCooldown: 10
   speed: 3
 --- !u!58 &7278838950227729251
 CircleCollider2D:

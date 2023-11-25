@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 4524661362429083545}
   - component: {fileID: 4018237565399316138}
   - component: {fileID: 6701194757474613457}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: circle_of_death
   m_TagString: Untagged
   m_Icon: {fileID: 0}

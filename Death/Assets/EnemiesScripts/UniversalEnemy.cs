@@ -10,20 +10,20 @@ public class UniversalEnemy : MonoBehaviour, IDamagable
     public int healthPoints;
 
 
-    private GameObject player;
+    protected GameObject player;
     [SerializeField]
-    private float attackRange;
+    protected float attackRange;
     [SerializeField]
-    private float minimumDistance;
+    protected float minimumDistance;
     [SerializeField]
-    private float uncomfortableDistance;
+    protected float uncomfortableDistance;
 
 
-    private float distanceToHero;
-    [SerializeField] private GameObject primaryAttack, secondaryAttack;
-    [SerializeField] private float primaryAttackCooldown, secondaryAttackCooldown;
-    private float primaryAttackTimer, secondaryAttackTimer;
-    [SerializeField] private float speed;
+    protected float distanceToHero;
+    [SerializeField] protected GameObject primaryAttack, secondaryAttack;
+    [SerializeField] protected float primaryAttackCooldown, secondaryAttackCooldown;
+    protected float primaryAttackTimer, secondaryAttackTimer;
+    [SerializeField] protected float speed;
 
     public void damage(int amount)
     {
@@ -56,7 +56,8 @@ public class UniversalEnemy : MonoBehaviour, IDamagable
         secondaryAttackTimer = 0;
     }
 
-    void attacksControl()
+
+    protected void attacksControl()
     {
         primaryAttackTimer += Time.deltaTime;
         secondaryAttackTimer += Time.deltaTime;
@@ -72,7 +73,7 @@ public class UniversalEnemy : MonoBehaviour, IDamagable
         }
     }
 
-    void move()
+    protected void move()
     {
         distanceToHero = Vector2.Distance(transform.position, player.transform.position);
 
