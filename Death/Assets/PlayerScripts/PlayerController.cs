@@ -141,6 +141,8 @@ public class PlayerController : MonoBehaviour
             playerAudio.PlayOneShot(dashSound, 3f);
             StartCoroutine(DashCoroutine());
         }
+
+        gameManager.UpdateDashCooldown(Mathf.Min(dashTimer, dashCooldown)/dashCooldown);
     }
 
     IEnumerator DashCoroutine()
