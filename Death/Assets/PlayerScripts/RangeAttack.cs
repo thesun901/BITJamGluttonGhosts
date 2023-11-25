@@ -9,6 +9,9 @@ public class RangeAttack : MonoBehaviour
     [SerializeField] private float lifetime;
     private PlayerController pc;
 
+    private AudioSource daggerAudio;
+    [SerializeField] private AudioClip projectileCollisionSound;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -28,6 +31,10 @@ public class RangeAttack : MonoBehaviour
         if(damagable != null )
         {
             damagable.damage(pc.rangeDamage);
+        }
+        if (collision.gameObject.CompareTag("Projectile"))
+        {
+            GameObject.Find("Player").GetComponent<PlayerController>().playerAudio.PlayOneShot(projectileCollisionSound);
         }
         Destroy(gameObject, 0.03f);
     }

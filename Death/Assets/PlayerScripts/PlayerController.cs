@@ -28,9 +28,16 @@ public class PlayerController : MonoBehaviour
     [SerializeField] public float rangeCooldown;
     private float rangeTimer;
 
-    //Animations
+    // Animations
     private Animator animator;
     private Transform body;
+
+    // Sounds
+    public AudioSource playerAudio;
+    [SerializeField] private AudioClip meleeSound;
+    [SerializeField] private AudioClip rangeSound;
+    [SerializeField] private AudioClip playerHurtSound;
+    [SerializeField] private AudioClip dashSound;
 
     // Start is called before the first frame update
     void Start()
@@ -42,7 +49,8 @@ public class PlayerController : MonoBehaviour
         body = gameObject.transform.GetChild(0);
         animator = body.GetComponent<Animator>();
         meleeTimer = meleeCooldown;
-        rangeTimer = 69;
+        rangeTimer = rangeCooldown;
+        playerAudio = GetComponent<AudioSource>();
     }
 
     // Update is called once per frame
@@ -108,6 +116,7 @@ public class PlayerController : MonoBehaviour
                 vectorToTarget.z = 0;
                 Vector3 rotatedVectorToTarget = Quaternion.Euler(0, 0, 180) * vectorToTarget;
                 GameObject.Instantiate(rangeAttackObject, transform.position + vectorToTarget.normalized * 1, Quaternion.LookRotation(Vector3.forward, rotatedVectorToTarget * -90));
+                playerAudio.PlayOneShot(rangeSound);
             }
 
             if (Input.GetKeyDown(KeyCode.Mouse1) && meleeTimer >= meleeCooldown)
@@ -119,7 +128,7 @@ public class PlayerController : MonoBehaviour
                 vectorToTarget.z = 0;
                 Vector3 rotatedVectorToTarget = Quaternion.Euler(0, 0, 90) * vectorToTarget;
                 GameObject.Instantiate(meleeAttackObject, transform.position + vectorToTarget.normalized * 2, Quaternion.LookRotation(Vector3.forward, rotatedVectorToTarget));
-
+                playerAudio.PlayOneShot(meleeSound);
             }
         }
     }
@@ -128,6 +137,8 @@ public class PlayerController : MonoBehaviour
     {
         if (canDash)
         {
+            playerAudio.PlayOneShot(dashSound);
+
             currentSpeed += dashSpeedBonus;
             canDash = false;
 
@@ -168,5 +179,6 @@ public class PlayerController : MonoBehaviour
     public void OnHit(int damage)
     {
         healthPoints -= damage;
+        playerAudio.PlayOneShot(playerHurtSound);
     }
 }
