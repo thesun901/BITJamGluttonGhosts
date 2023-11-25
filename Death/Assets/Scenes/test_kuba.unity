@@ -135,10 +135,22 @@ PrefabInstance:
       propertyPath: m_Name
       value: Player
       objectReference: {fileID: 0}
+    - target: {fileID: 2152445198376806414, guid: 402ce632a42e3ff4f83f0e776fa87b84, type: 3}
+      propertyPath: m_BodyType
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2152445198376806414, guid: 402ce632a42e3ff4f83f0e776fa87b84, type: 3}
+      propertyPath: m_Constraints
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 2152445198376806414, guid: 402ce632a42e3ff4f83f0e776fa87b84, type: 3}
+      propertyPath: m_GravityScale
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 8319276538293991966, guid: 402ce632a42e3ff4f83f0e776fa87b84, type: 3}
-      propertyPath: dashSound
-      value: 
-      objectReference: {fileID: 8300000, guid: fdf1371cab27fd040bb26e6147cf2d9d, type: 3}
+      propertyPath: dashSpeedBonus
+      value: 20
+      objectReference: {fileID: 0}
     - target: {fileID: 9194212052159504073, guid: 402ce632a42e3ff4f83f0e776fa87b84, type: 3}
       propertyPath: m_LocalPosition.x
       value: -0.034868676

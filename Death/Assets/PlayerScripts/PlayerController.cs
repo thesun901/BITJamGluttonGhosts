@@ -137,7 +137,7 @@ public class PlayerController : MonoBehaviour
     {
         if (canDash)
         {
-            playerAudio.PlayOneShot(dashSound);
+            playerAudio.PlayOneShot(dashSound, 3f);
 
             currentSpeed += dashSpeedBonus;
             canDash = false;
