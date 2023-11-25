@@ -2,6 +2,8 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
+using UnityEngine.SceneManagement;
+using UnityEditor.SearchService;
 
 public class StoryController : MonoBehaviour
 {
@@ -11,12 +13,20 @@ public class StoryController : MonoBehaviour
     [SerializeField] private TextMeshProUGUI text;
     [SerializeField] private float timePerLine;
 
+    public GameObject yesButton;
+    public GameObject noButton;
+
     // Start is called before the first frame update
     void Start()
     {
         storyAudio = GetComponent<AudioSource>();
 
         PrintText(messages);
+
+        if (SceneManager.GetActiveScene().name == "story_play_again")
+        {
+            StartCoroutine(showButtons());
+        } 
     }
 
     // Update is called once per frame
@@ -43,5 +53,12 @@ public class StoryController : MonoBehaviour
     {
         storyAudio.PlayOneShot(wooshSound);
         text.text = textLine;
+    }
+
+    IEnumerator showButtons()
+    {
+        yield return new WaitForSeconds(6);
+        yesButton.SetActive(true);
+        noButton.SetActive(true);
     }
 }
