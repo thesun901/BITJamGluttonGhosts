@@ -291,7 +291,7 @@ MonoBehaviour:
   m_lineSpacingMax: 0
   m_paragraphSpacing: 0
   m_charWidthMaxAdj: 0
-  m_enableWordWrapping: 0
+  m_enableWordWrapping: 1
   m_wordWrappingRatios: 0.4
   m_overflowMode: 0
   m_linkedTextComponent: {fileID: 0}
@@ -311,7 +311,7 @@ MonoBehaviour:
   m_VertexBufferAutoSizeReduction: 0
   m_useMaxVisibleDescender: 1
   m_pageToDisplay: 1
-  m_margin: {x: 0, y: 0, z: 0, w: 0}
+  m_margin: {x: -760.6659, y: -318.42224, z: -744.06604, w: -364.51715}
   m_isUsingLegacyAnimationComponent: 0
   m_isVolumetricText: 0
   m_hasFontAssetChanged: 0
@@ -550,7 +550,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   storyAudio: {fileID: 0}
-  messages: []
+  messages:
+  - The necromant lied.
+  - 'The king mocks you with his lats breaths. '
+  - 'Your friend is lost. '
+  - 'Dark magic consumes souls, twists minds. '
+  - 'You become a puppet of darkness, perpetuating chaos. '
+  - 'GAME OVER! '
   wooshSound: {fileID: 8300000, guid: f68bed2e65dbb824caf6b5dc8b6b6d12, type: 3}
   text: {fileID: 940777094}
   timePerLine: 3
