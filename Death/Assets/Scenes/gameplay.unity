@@ -135,6 +135,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Player
       objectReference: {fileID: 0}
+    - target: {fileID: 8319276538293991966, guid: 402ce632a42e3ff4f83f0e776fa87b84, type: 3}
+      propertyPath: dashSpeedBonus
+      value: 20
+      objectReference: {fileID: 0}
     - target: {fileID: 9194212052159504073, guid: 402ce632a42e3ff4f83f0e776fa87b84, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
@@ -348,7 +352,7 @@ MonoBehaviour:
   m_lineSpacingMax: 0
   m_paragraphSpacing: 0
   m_charWidthMaxAdj: 0
-  m_enableWordWrapping: 1
+  m_enableWordWrapping: 0
   m_wordWrappingRatios: 0.4
   m_overflowMode: 0
   m_linkedTextComponent: {fileID: 0}
@@ -368,7 +372,7 @@ MonoBehaviour:
   m_VertexBufferAutoSizeReduction: 0
   m_useMaxVisibleDescender: 1
   m_pageToDisplay: 1
-  m_margin: {x: 0, y: 0, z: 0, w: 0}
+  m_margin: {x: 0, y: 0, z: 48.23819, w: -40.68302}
   m_isUsingLegacyAnimationComponent: 0
   m_isVolumetricText: 0
   m_hasFontAssetChanged: 0
@@ -394,7 +398,7 @@ GameObject:
   - component: {fileID: 1127588588}
   m_Layer: 0
   m_Name: GameManager
-  m_TagString: Untagged
+  m_TagString: GameController
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -426,6 +430,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fae32bc0b45d4ad4c932738041b514b3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  healthPointsText: {fileID: 902718249}
 --- !u!1 &1922103179
 GameObject:
   m_ObjectHideFlags: 0

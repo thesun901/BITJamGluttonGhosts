@@ -3,6 +3,8 @@ using UnityEngine;
 
 public class PlayerController : MonoBehaviour
 {
+    private GameManager gameManager;
+
     // Player state
     public int healthPoints;
     private bool isDead;
@@ -42,14 +44,19 @@ public class PlayerController : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        gameManager = GameObject.Find("GameManager").GetComponent<GameManager>();
+
         isDead = false;
         canDash = true;
         isSlowed = false;
         currentSpeed = walkingSpeed;
+
         body = gameObject.transform.GetChild(0);
         animator = body.GetComponent<Animator>();
+
         meleeTimer = meleeCooldown;
         rangeTimer = rangeCooldown;
+
         playerAudio = GetComponent<AudioSource>();
     }
 
@@ -180,5 +187,6 @@ public class PlayerController : MonoBehaviour
     {
         healthPoints -= damage;
         playerAudio.PlayOneShot(playerHurtSound);
+        gameManager.UpdateHealthPoints();
     }
 }
