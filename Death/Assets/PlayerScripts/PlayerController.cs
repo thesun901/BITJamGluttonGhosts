@@ -33,9 +33,10 @@ public class PlayerController : MonoBehaviour
     private Transform body;
 
     // Sounds
-    private AudioSource playerAudio;
+    public AudioSource playerAudio;
     [SerializeField] private AudioClip meleeSound;
     [SerializeField] private AudioClip rangeSound;
+    [SerializeField] private AudioClip playerHurtSound;
 
     // Start is called before the first frame update
     void Start()
@@ -114,6 +115,7 @@ public class PlayerController : MonoBehaviour
                 vectorToTarget.z = 0;
                 Vector3 rotatedVectorToTarget = Quaternion.Euler(0, 0, 180) * vectorToTarget;
                 GameObject.Instantiate(rangeAttackObject, transform.position + vectorToTarget.normalized * 1, Quaternion.LookRotation(Vector3.forward, rotatedVectorToTarget * -90));
+                playerAudio.PlayOneShot(rangeSound);
             }
 
             if (Input.GetKeyDown(KeyCode.Mouse1) && meleeTimer >= meleeCooldown)
@@ -174,5 +176,6 @@ public class PlayerController : MonoBehaviour
     public void OnHit(int damage)
     {
         healthPoints -= damage;
+        playerAudio.PlayOneShot(playerHurtSound);
     }
 }
