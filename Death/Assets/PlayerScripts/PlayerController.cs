@@ -28,6 +28,10 @@ public class PlayerController : MonoBehaviour
     [SerializeField] public float rangeCooldown;
     private float rangeTimer;
 
+    //Animations
+    private Animator animator;
+    private Transform body;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -35,7 +39,8 @@ public class PlayerController : MonoBehaviour
         canDash = true;
         isSlowed = false;
         currentSpeed = walkingSpeed;
-
+        body = gameObject.transform.GetChild(0);
+        animator = body.GetComponent<Animator>();
         meleeTimer = meleeCooldown;
         rangeTimer = 69;
     }
@@ -59,6 +64,25 @@ public class PlayerController : MonoBehaviour
             // Movement
             transform.Translate(velocity);
 
+            //animation
+            if (velocity != Vector2.zero)
+            {
+                animator.SetBool("isWalking", true);
+                if(velocity.x > 0)
+                {
+                    body.localScale = new Vector3(-1, 1, 1);
+                }
+                else
+                {
+                    body.localScale = new Vector3(1, 1, 1);
+                }
+            }
+            else
+            {
+                animator.SetBool("isWalking", false);
+            }
+
+
             // Dash
             if (Input.GetKeyDown(KeyCode.Space))
             {
@@ -78,7 +102,7 @@ public class PlayerController : MonoBehaviour
             if (Input.GetKeyDown(KeyCode.Mouse0) && rangeTimer >= rangeCooldown)
             {
                 rangeTimer = 0;
-
+                animator.SetTrigger("attack");
                 Vector3 mousePosition = Camera.main.ScreenToWorldPoint(Input.mousePosition);
                 Vector3 vectorToTarget = mousePosition - transform.position;
                 vectorToTarget.z = 0;
@@ -89,7 +113,7 @@ public class PlayerController : MonoBehaviour
             if (Input.GetKeyDown(KeyCode.Mouse1) && meleeTimer >= meleeCooldown)
             {
                 meleeTimer = 0;
-
+                animator.SetTrigger("attack");
                 Vector3 mousePosition = Camera.main.ScreenToWorldPoint(Input.mousePosition);
                 Vector3 vectorToTarget = mousePosition - transform.position;
                 vectorToTarget.z = 0;

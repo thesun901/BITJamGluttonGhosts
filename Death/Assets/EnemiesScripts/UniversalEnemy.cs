@@ -51,7 +51,7 @@ public class UniversalEnemy : MonoBehaviour, IDamagable
 
     void secondAttack()
     {
-        GameObject.Instantiate(primaryAttack);
+        GameObject.Instantiate(secondaryAttack, transform.position, Quaternion.identity);
         primaryAttackTimer = 0;
         secondaryAttackTimer = 0;
     }

@@ -19,7 +19,7 @@ public class InteriorCircleOfArrows : MonoBehaviour
         timer += Time.deltaTime;
         if(timer >= 0.07f)
         {
-            Vector3 addedRandom = new Vector3(Random.Range(-1.5f, 1.5f), Random.Range(-0.5f, 3), 0);
+            Vector3 addedRandom = new Vector3(Random.Range(-1.5f, 1.5f), Random.Range(0.5f, 3), 0);
             GameObject.Instantiate(cosmeticArrow, transform.position + addedRandom, Quaternion.identity);
             timer = 0;
         }
