@@ -10,10 +10,12 @@ public class GameManager : MonoBehaviour
     [SerializeField] private TextMeshProUGUI healthPointsText;
     [SerializeField] private Slider healthPointsBar;
     [SerializeField] private Slider dashCooldownBar;
+    private int currentLvl;
 
     // Start is called before the first frame update
     void Start()
     {
+        currentLvl = 1;
         playerObject = GameObject.Find("Player");
         UpdateHealthPoints(100);
     }
@@ -32,5 +34,10 @@ public class GameManager : MonoBehaviour
     public void UpdateDashCooldown(float percent)
     {
         dashCooldownBar.value = percent;
+    }
+
+    public void swapLvl()
+    {
+
     }
 }
