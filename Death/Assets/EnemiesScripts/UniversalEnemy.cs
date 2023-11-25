@@ -18,7 +18,7 @@ public class UniversalEnemy : MonoBehaviour, IDamagable
     [SerializeField]
     protected float uncomfortableDistance;
     [SerializeField] protected GameManager gm;
-    public bool spawnedByAbility;
+    [SerializeField] public bool spawnedByAbility;
 
 
     protected float distanceToHero;
@@ -35,6 +35,11 @@ public class UniversalEnemy : MonoBehaviour, IDamagable
         {
             death();
         }
+    }
+
+    public void setSpeed(float speed)
+    {
+        this.speed = speed;
     }
 
     void death()

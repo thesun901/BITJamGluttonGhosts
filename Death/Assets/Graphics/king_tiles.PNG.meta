@@ -121,7 +121,91 @@ TextureImporter:
     forceMaximumCompressionQuality_BC6H_BC7: 0
   spriteSheet:
     serializedVersion: 2
-    sprites: []
+    sprites:
+    - serializedVersion: 2
+      name: king arm
+      rect:
+        serializedVersion: 2
+        x: 287
+        y: 651
+        width: 374
+        height: 316
+      alignment: 9
+      pivot: {x: 0.7524502, y: 0.7912215}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e00a49e568195784785b311dc1c751d3
+      internalID: -1884204521
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: king body
+      rect:
+        serializedVersion: 2
+        x: 869
+        y: 9
+        width: 599
+        height: 451
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 932a4e3c11d9b084295d5d668e7146ea
+      internalID: -807867882
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: king sth
+      rect:
+        serializedVersion: 2
+        x: 269
+        y: 62
+        width: 193
+        height: 314
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ad869fe48a848cf4f9b5470900f63982
+      internalID: 1218978697
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: king head
+      rect:
+        serializedVersion: 2
+        x: 1403
+        y: 416
+        width: 554
+        height: 599
+      alignment: 9
+      pivot: {x: 0.4266514, y: 0.24061954}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: cc0a7ec1b7396e544a796c3de3268b2d
+      internalID: 1131840493
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     outline: []
     physicsShape: []
     bones: []
@@ -132,7 +216,11 @@ TextureImporter:
     edges: []
     weights: []
     secondaryTextures: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      king arm: -1884204521
+      king body: -807867882
+      king head: 1131840493
+      king sth: 1218978697
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

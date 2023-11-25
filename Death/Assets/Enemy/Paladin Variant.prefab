@@ -167,7 +167,7 @@ PrefabInstance:
     - target: {fileID: 9200000329498848456, guid: ff0a9184c7da5fe4b9dd65f520380386, type: 3}
       propertyPath: secondaryAttack
       value: 
-      objectReference: {fileID: 2608189844071172920, guid: ff0a9184c7da5fe4b9dd65f520380386, type: 3}
+      objectReference: {fileID: 7836373389676795768, guid: a294c6e8c6ec3ea439c5bdd59fb29756, type: 3}
     - target: {fileID: 9200000329498848456, guid: ff0a9184c7da5fe4b9dd65f520380386, type: 3}
       propertyPath: spawnedByAbility
       value: 0

@@ -14,10 +14,15 @@ public class GameManager : MonoBehaviour
     public int killCount;
     [SerializeField] private Transform[] spawnpoints;
     [SerializeField] private GameObject blackscreen;
+    [SerializeField] private PlayerController pc;
     [SerializeField] private Text blackscreenText;
+    [SerializeField] private GameObject deathscreen;
+    [SerializeField] private Text deathscreenText;
     [SerializeField] private string[] betweenLevelComunicates;
     [SerializeField] private string[] deathComunicates;
     [SerializeField] private Camera cam;
+    [SerializeField] KnightScript boss;
+    bool isDead;
 
     // Start is called before the first frame update
     void Start()
@@ -25,6 +30,8 @@ public class GameManager : MonoBehaviour
         currentLvl = 1;
         playerObject = GameObject.Find("Player");
         UpdateHealthPoints(100);
+        boss.setSpeed(0);
+        isDead = false;
     }
 
     // Update is called once per frame
@@ -33,6 +40,17 @@ public class GameManager : MonoBehaviour
        if (Input.GetKeyUp(KeyCode.Escape))
         {
             swapLvl();
+        }
+
+       if(pc.healthPoints <= 0 && currentLvl != 4 && !isDead)
+        {
+            deathscreen.SetActive(true);
+            deathscreenText.text = deathComunicates[Random.Range(0, deathComunicates.Length)];
+            isDead = true;
+        }
+       if(isDead && Input.anyKey)
+        {
+            
         }
     }
 
@@ -53,8 +71,9 @@ public class GameManager : MonoBehaviour
         killCount = 0;
         blacksreentextflash(betweenLevelComunicates[Random.Range(0, betweenLevelComunicates.Length - 1)]);
         playerObject.GetComponent<PlayerController>().healthPoints = 100;
+        UpdateHealthPoints(100);
 
-        if(currentLvl == 3)
+        if (currentLvl == 3)
         {
             cam.backgroundColor = Color.black;
         }
@@ -70,6 +89,10 @@ public class GameManager : MonoBehaviour
     private void disableBlackscreen()
     {
         blackscreen.SetActive(false);
+        if (currentLvl == 4)
+        {
+            boss.setSpeed(7);
+        }
     }
 
 }
