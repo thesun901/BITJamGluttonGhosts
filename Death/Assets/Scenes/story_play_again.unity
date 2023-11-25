@@ -1153,8 +1153,8 @@ MonoBehaviour:
   wooshSound: {fileID: 8300000, guid: f68bed2e65dbb824caf6b5dc8b6b6d12, type: 3}
   text: {fileID: 940777094}
   timePerLine: 3
-  yesButton: {fileID: 1106472857}
-  noButton: {fileID: 1923837295}
+  yesButton: {fileID: 0}
+  noButton: {fileID: 0}
 --- !u!4 &2031690992
 Transform:
   m_ObjectHideFlags: 0

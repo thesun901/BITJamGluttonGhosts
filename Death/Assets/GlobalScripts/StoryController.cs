@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
 using UnityEngine.SceneManagement;
+using UnityEngine.UI;
 using UnityEditor.SearchService;
 
 public class StoryController : MonoBehaviour
@@ -26,7 +27,13 @@ public class StoryController : MonoBehaviour
         if (SceneManager.GetActiveScene().name == "story_play_again")
         {
             StartCoroutine(showButtons());
-        } 
+        }
+
+        if (yesButton != null)
+        {
+            yesButton.GetComponent<Button>().onClick.AddListener(ResetYes);
+            noButton.GetComponent<Button>().onClick.AddListener(ResetNo);
+        }
     }
 
     // Update is called once per frame
@@ -60,5 +67,15 @@ public class StoryController : MonoBehaviour
         yield return new WaitForSeconds(6);
         yesButton.SetActive(true);
         noButton.SetActive(true);
+    }
+
+    private void ResetYes()
+    {
+        SceneManager.LoadScene(2);
+    }
+
+    private void ResetNo()
+    {
+        SceneManager.LoadScene(6);
     }
 }
