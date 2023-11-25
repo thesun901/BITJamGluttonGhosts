@@ -21,7 +21,7 @@ public class MainMenuScript : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        //playButton.onClick.AddListener();
+        playButton.onClick.AddListener(Play);
 
         controlsButton.onClick.AddListener(OpenControls);
         closeControlsButton.onClick.AddListener(CloseControls);
