@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 
 public class GameManager : MonoBehaviour
 {
@@ -39,7 +40,7 @@ public class GameManager : MonoBehaviour
     {
        if (Input.GetKeyUp(KeyCode.Escape))
         {
-            swapLvl();
+            SceneManager.LoadScene(1);
         }
 
        if(pc.healthPoints <= 0 && currentLvl != 4 && !isDead)
@@ -48,9 +49,25 @@ public class GameManager : MonoBehaviour
             deathscreenText.text = deathComunicates[Random.Range(0, deathComunicates.Length)];
             isDead = true;
         }
-       if(isDead && Input.anyKey)
+
+        if (pc.healthPoints <= 0 && currentLvl == 4)
         {
+            SceneManager.LoadScene(3);
+        }
+
+        if (isDead)
+        {
+            if(Input.anyKey) 
+            {
+                SceneManager.LoadScene(2);
+            }
             
+        }
+
+
+        if (boss.healthPoints <= 0)
+        {
+            SceneManager.LoadScene(5);
         }
     }
 

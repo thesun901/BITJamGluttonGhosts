@@ -254,7 +254,7 @@ MonoBehaviour:
   spawnedByAbility: 0
   primaryAttack: {fileID: 561954749869557272, guid: fdd57e7fe68f17547b39e84044c66038, type: 3}
   secondaryAttack: {fileID: 561954749869557272, guid: fdd57e7fe68f17547b39e84044c66038, type: 3}
-  primaryAttackCooldown: 5.89
+  primaryAttackCooldown: 3.24
   secondaryAttackCooldown: 414.9
   speed: 6.26
 --- !u!1 &5996377551100949552
