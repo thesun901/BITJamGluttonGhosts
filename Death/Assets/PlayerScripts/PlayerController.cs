@@ -17,6 +17,7 @@ public class PlayerController : MonoBehaviour
     [SerializeField] private float dashDuration;
 
     // Melee Attacks
+    [SerializeField] private GameObject meleeAttackObject;
     [SerializeField] public int meleeDamage;
     [SerializeField] public float meleeCooldown;
     private float meleeTimer;
@@ -80,8 +81,21 @@ public class PlayerController : MonoBehaviour
 
                 Vector3 mousePosition = Camera.main.ScreenToWorldPoint(Input.mousePosition);
                 Vector3 vectorToTarget = mousePosition - transform.position;
+                vectorToTarget.z = 0;
                 Vector3 rotatedVectorToTarget = Quaternion.Euler(0, 0, 180) * vectorToTarget;
-                GameObject.Instantiate(rangeAttackObject, transform.position, Quaternion.LookRotation(Vector3.forward, rotatedVectorToTarget * -90));
+                GameObject.Instantiate(rangeAttackObject, transform.position + vectorToTarget.normalized * 1, Quaternion.LookRotation(Vector3.forward, rotatedVectorToTarget * -90));
+            }
+
+            if (Input.GetKeyDown(KeyCode.Mouse1) && meleeTimer >= meleeCooldown)
+            {
+                meleeTimer = 0;
+
+                Vector3 mousePosition = Camera.main.ScreenToWorldPoint(Input.mousePosition);
+                Vector3 vectorToTarget = mousePosition - transform.position;
+                vectorToTarget.z = 0;
+                Vector3 rotatedVectorToTarget = Quaternion.Euler(0, 0, 90) * vectorToTarget;
+                GameObject.Instantiate(meleeAttackObject, transform.position + vectorToTarget.normalized * 2, Quaternion.LookRotation(Vector3.forward, rotatedVectorToTarget));
+
             }
         }
     }
