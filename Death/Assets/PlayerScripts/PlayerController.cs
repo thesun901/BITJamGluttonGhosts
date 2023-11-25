@@ -37,6 +37,7 @@ public class PlayerController : MonoBehaviour
     [SerializeField] private AudioClip meleeSound;
     [SerializeField] private AudioClip rangeSound;
     [SerializeField] private AudioClip playerHurtSound;
+    [SerializeField] private AudioClip dashSound;
 
     // Start is called before the first frame update
     void Start()
@@ -136,6 +137,8 @@ public class PlayerController : MonoBehaviour
     {
         if (canDash)
         {
+            playerAudio.PlayOneShot(dashSound);
+
             currentSpeed += dashSpeedBonus;
             canDash = false;
 
