@@ -550,7 +550,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   storyAudio: {fileID: 0}
-  wooshSound: {fileID: 0}
+  messages: []
+  wooshSound: {fileID: 8300000, guid: f68bed2e65dbb824caf6b5dc8b6b6d12, type: 3}
   text: {fileID: 940777094}
   timePerLine: 3
 --- !u!4 &2031690992
@@ -578,7 +579,7 @@ AudioSource:
   m_Enabled: 1
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
-  m_audioClip: {fileID: 8300000, guid: d4002b91b72f9ca49b565c6258891a68, type: 3}
+  m_audioClip: {fileID: 0}
   m_PlayOnAwake: 1
   m_Volume: 1
   m_Pitch: 1
