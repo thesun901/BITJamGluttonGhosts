@@ -23,6 +23,7 @@ public class RangerScript : UniversalEnemy
         animator = gameObject.transform.GetChild(0).GetComponent<Animator>();
         InvokeRepeating("animationDetails", 0.05f, 0.05f);
         InvokeRepeating("moveAnimations", 0.05f, 0.05f);
+        gm = GameObject.Find("GameManager").GetComponent<GameManager>();
     }
 
 

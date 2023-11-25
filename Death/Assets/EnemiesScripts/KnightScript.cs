@@ -15,6 +15,13 @@ public class KnightScript : UniversalEnemy
         sr = gameObject.transform.GetChild(0).GetComponent<SpriteRenderer>();
         animator = gameObject.transform.GetChild(0).GetComponent<Animator>();
         InvokeRepeating("animations", 0.05f, 0.05f);
+        gm = GameObject.Find("GameManager").GetComponent<GameManager>();
+
+        UniversalEnemy ue = secondaryAttack.GetComponent<UniversalEnemy>();
+        if(ue != null)
+        {
+            ue.spawnedByAbility = true;
+        }
     }
 
 

@@ -80,5 +80,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2cc3fc9515d181345909486dba981a30, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  damage: 5
+  damage: 9
   cosmeticArrow: {fileID: 2731153494967567711, guid: 119695b4d45ee0949975862220b03913, type: 3}

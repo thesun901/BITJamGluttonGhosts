@@ -17,6 +17,8 @@ public class UniversalEnemy : MonoBehaviour, IDamagable
     protected float minimumDistance;
     [SerializeField]
     protected float uncomfortableDistance;
+    [SerializeField] protected GameManager gm;
+    public bool spawnedByAbility;
 
 
     protected float distanceToHero;
@@ -37,6 +39,10 @@ public class UniversalEnemy : MonoBehaviour, IDamagable
 
     void death()
     {
+        if(!spawnedByAbility)
+        { 
+            gm.killCount++;
+        }
         Destroy(gameObject);
     }
 
@@ -95,6 +101,7 @@ public class UniversalEnemy : MonoBehaviour, IDamagable
     void Start()
     {
         player = GameObject.Find("Player");
+        gm = GameObject.Find("GameManager").GetComponent<GameManager>();
     }
 
     // Update is called once per frame

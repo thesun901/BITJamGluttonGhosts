@@ -184,10 +184,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 66e389b332a3fed4586e1d9215dff703, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  healthPoints: 20
+  healthPoints: 35
   attackRange: 25
   minimumDistance: 15
   uncomfortableDistance: 8
+  gm: {fileID: 0}
+  spawnedByAbility: 0
   primaryAttack: {fileID: 2561097710071662032, guid: 08107a0d6d132cd47b144b67b34873d5, type: 3}
   secondaryAttack: {fileID: 1156973731342554112, guid: 75362b1c28fc0a344ae57769d21f005c, type: 3}
   primaryAttackCooldown: 3.99
