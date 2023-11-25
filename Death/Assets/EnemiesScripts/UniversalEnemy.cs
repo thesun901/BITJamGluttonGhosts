@@ -40,7 +40,7 @@ public class UniversalEnemy : MonoBehaviour, IDamagable
         Destroy(gameObject);
     }
 
-    void firstAttack()
+    protected void firstAttack()
     {
         Vector3 vectorToTarget = player.transform.position - transform.position;
         Vector3 rotatedVectorToTarget = Quaternion.Euler(0, 0, 180) * vectorToTarget;
@@ -49,7 +49,7 @@ public class UniversalEnemy : MonoBehaviour, IDamagable
         primaryAttackTimer = 0;
     }
 
-    void secondAttack()
+    protected void secondAttack()
     {
         GameObject.Instantiate(secondaryAttack, transform.position, Quaternion.identity);
         primaryAttackTimer = 0;
