@@ -6,6 +6,7 @@ using TMPro;
 public class StoryController : MonoBehaviour
 {
     public AudioSource storyAudio;
+    [SerializeField] private List<string> messages;
     [SerializeField] private AudioClip wooshSound;
     [SerializeField] private TextMeshProUGUI text;
     [SerializeField] private float timePerLine;
@@ -15,14 +16,7 @@ public class StoryController : MonoBehaviour
     {
         storyAudio = GetComponent<AudioSource>();
 
-        List<string> list = new List<string>();
-        list.Add("daskdmaskd");
-        list.Add("test");
-        list.Add("daskdmaskd");
-        list.Add("test");
-        list.Add("daskdmaskd");
-
-        PrintText(list);
+        PrintText(messages);
     }
 
     // Update is called once per frame
