@@ -839,7 +839,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6ce07673dd211fb40826ec217ba0bfcc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  healthPoints: 200
+  healthPoints: 214
   attackRange: 7.46
   minimumDistance: 2
   uncomfortableDistance: 1.85
@@ -4774,11 +4774,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   lvl: 1
-  enemiesAmount: 5
+  enemiesAmount: 18
   enemiesObjects:
   - {fileID: 2368728586854647065, guid: 0d4f780930a8fff46bc12cfb00281cc8, type: 3}
   - {fileID: 2608189844071172920, guid: ff0a9184c7da5fe4b9dd65f520380386, type: 3}
-  frequency: 2.56
+  frequency: 3.72
   spawnpoints:
   - {fileID: 1659772792}
   - {fileID: 130821335}
@@ -6173,7 +6173,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   lvl: 2
-  enemiesAmount: 5
+  enemiesAmount: 25
   enemiesObjects:
   - {fileID: 2368728586854647065, guid: 0d4f780930a8fff46bc12cfb00281cc8, type: 3}
   - {fileID: 2608189844071172920, guid: ff0a9184c7da5fe4b9dd65f520380386, type: 3}
@@ -19343,7 +19343,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   lvl: 3
-  enemiesAmount: 30
+  enemiesAmount: 20
   enemiesObjects:
   - {fileID: 9167976026115066786, guid: 400034fcb7015ff4493a3015c79fbb71, type: 3}
   - {fileID: 2608189844071172920, guid: ff0a9184c7da5fe4b9dd65f520380386, type: 3}

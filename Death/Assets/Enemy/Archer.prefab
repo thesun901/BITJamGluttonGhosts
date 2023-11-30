@@ -184,7 +184,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 66e389b332a3fed4586e1d9215dff703, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  healthPoints: 35
+  healthPoints: 20
   attackRange: 25
   minimumDistance: 15
   uncomfortableDistance: 8

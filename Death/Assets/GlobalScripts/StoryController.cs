@@ -4,7 +4,7 @@ using UnityEngine;
 using TMPro;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
-using UnityEditor.SearchService;
+
 
 public class StoryController : MonoBehaviour
 {
@@ -54,6 +54,12 @@ public class StoryController : MonoBehaviour
             PrintLine(line);
             yield return new WaitForSeconds(timePerLine);
         }
+
+        if (SceneManager.GetActiveScene().name != "story_play_again")
+        {
+            SceneManager.LoadScene(1);
+        }
+
     }
 
     void PrintLine(string textLine)
